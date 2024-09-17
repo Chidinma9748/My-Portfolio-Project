@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""This contains the bulk of actions for the planner involves adding,opening,saving and loading tasks""
+"""This contains the bulk of actions for the planner involves adding,opening,saving and loading tasks"""
 import json
 from datetime import datetime
 
@@ -16,17 +16,17 @@ def save_tasks(tasks):
         json.dump(tasks, file, indent=4)
 
 def add_task():
-    title = input("Enter task title: ").strip()
+    name = input("Enter task name: ").strip()
     due_date = input("Enter due date (YYYY-MM-DD): ").strip()
     task = {
-        "title": title,
+        "name": name,
         "due_date": due_date,
         "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
     tasks = load_tasks()
     tasks.append(task)
     save_tasks(tasks)
-    print(f"Task '{title}' added successfully!")
+    print("Task '{}' added successfully!".format(name))
 
 def view_tasks():
     tasks = load_tasks()
@@ -35,7 +35,13 @@ def view_tasks():
         return
     print("\nCurrent Tasks:")
     for index, task in enumerate(tasks, start=1):
-        print(f"{index}. {task['title']} (Due: {task['due_date']}, Created: {task['created_at']})")
+        print("{index}. {name} (Due: {due_date}, Created: {created_at})".format(
+    index=index,
+    name=task['name'],
+    due_date=task['due_date'],
+    created_at=task['created_at']
+))
+
 
 def delete_task():
     view_tasks()
@@ -46,7 +52,8 @@ def delete_task():
     if 0 <= task_index < len(tasks):
         removed_task = tasks.pop(task_index)
         save_tasks(tasks)
-        print(f"Task '{removed_task['title']}' deleted successfully!")
+        print("Task '{}' added successfully!".format(name))
+
     else:
         print("Invalid task number.")
 

@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 
 from newpage import newpage
-from aimIT import add_task, view_tasks, delete_task
+from aimIT import add_task, view_tasks, delete_task, load_tasks, save_tasks
+
 
 def main_menu():
     while True:
-        clear_screen()
+        newpage()
         print("=== Terminal Planner ===")
         print("1. Add Task")
         print("2. View Tasks")
