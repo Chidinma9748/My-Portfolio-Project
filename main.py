@@ -7,7 +7,7 @@ from aimIT import add_task, view_tasks, delete_task, load_tasks, save_tasks
 def main_menu():
     while True:
         newpage()
-        print("=== Terminal Planner ===")
+        print("=== aimIT Planner ===")
         print("1. Add Task")
         print("2. View Tasks")
         print("3. Delete Task")
