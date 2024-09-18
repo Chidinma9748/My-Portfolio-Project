@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This contains the bulk of actions for the planner involves adding,opening,saving and loading tasks"""
+# This contains the bulk of actions for the planner involves adding,opening,saving and loading tasks
 import os
 import json
 from datetime import datetime
