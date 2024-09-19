@@ -36,11 +36,13 @@ def view_tasks():
         return
     print("\nCurrent Tasks:")
     for index, task in enumerate(tasks, start=1):
+        status = "Done" if task.get('done') else "Not Done"  # This displays status of the task
         print("{index}. {name} (Due: {due_date}, Created: {created_at})".format(
     index=index,
     name=task['name'],
     due_date=task['due_date'],
     created_at=task['created_at']
+    Status=['status']
 ))
 
 
@@ -58,3 +60,16 @@ def delete_task():
     else:
         print("Invalid task number.")
 
+def track_task():
+    tasks = load_tasks()
+    if not tasks:
+    print("No task to track here.")
+    return
+    task_index = int(input("Enter the task number to mark as done: ")) - 1
+
+    if 0 <= task_index < len(tasks):
+        tasks[task_index]['done'] = True
+        save_tasks(tasks)
+        print("Task '{tasks[task_index]['name']}' marked as done!".format(name))
+    else:
+        print("Invalid task number.")

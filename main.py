@@ -11,7 +11,8 @@ def main_menu():
         print("1. Add Task")
         print("2. View Tasks")
         print("3. Delete Task")
-        print("4. Exit")
+        print("4. Track Task")
+        print("5. Exit")
         choice = input("Choose an option: ").strip()
         if choice == '1':
             add_task()
@@ -20,6 +21,8 @@ def main_menu():
         elif choice == '3':
             delete_task()
         elif choice == '4':
+            track_task()
+        elif choice == '5':
             print("Exiting planner...")
             break
         else:
