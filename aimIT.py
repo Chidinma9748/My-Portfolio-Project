@@ -49,12 +49,12 @@ def delete_task():
     view_tasks()
     tasks = load_tasks()
     if not tasks:
-        return
+       return
     task_index = int(input("Enter task number to delete: ")) - 1
     if 0 <= task_index < len(tasks):
-        removed_task = tasks.pop(task_index)
-        save_tasks(tasks)
-        print("Task '{}' added successfully!".format(name))
+       removed_task = tasks.pop(task_index) # removes task
+       save_tasks(tasks)
+       print("Task '{}' deleted successfully!".format(removed_task['name']))
 
     else:
         print("Invalid task number.")
@@ -74,9 +74,11 @@ def track_task():
         save_tasks(tasks)  # Save the updated tasks list
         task = tasks[task_index]
         # Ensure correct syntax for status
-        status = "Done" if task.get('done') else "Not Done"  # Use lowercase variable 'status'
-        print(f"Task '{task['name']}' marked as done!")
-        print(f"Status: {status}")  # Correctly print the task status
+        status = "Done" if task.get('done') else "Not Done"  
+        print("Task '{}' marked as done!".format(task['name'])) 
+        print("Status: {}".format(status))
+       
+       
     else:
         print("Invalid task number.")
 
